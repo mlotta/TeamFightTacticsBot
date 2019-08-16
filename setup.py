@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='TeamFightTacticsBot',
     version='1.0',
-    packages=[''],
+    packages=['TeamFightTacticsBot'],
     url='https://github.com/ConnorWolanski/TeamFightTacticsBot.git',
     license='',
     requires=['aenum', 'Pillow', 'pyautogui', 'pyscreenshot', 'pytesseract'],

@@ -1,23 +1,24 @@
 # Python downloaded libraries
 import time
 import pytesseract as get_text
+get_text.pytesseract.tesseract_cmd = r'D:\Tesseract\tesseract.exe'
 import pyautogui as auto_gui
 import pyscreenshot as image_grab
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageGrab
 import math
 import copy
 # Objects
-from TeamFightTacticsBot.Structures.Point import Point
+from Structures.Point import Point
 
 # Constants
-from TeamFightTacticsBot.Enumerators.Champions import Champions
-from TeamFightTacticsBot.Enumerators.Synergies import Synergies
-from TeamFightTacticsBot.Utility.Constants import VARIANCE_THRESHOLD, PERCENTAGE_ACCURACY, USER_32
+from Enumerators.Champions import Champions
+from Enumerators.Synergies import Synergies
+from Utility.Constants import VARIANCE_THRESHOLD, PERCENTAGE_ACCURACY, USER_32
 
 # Global Variable imports
-import TeamFightTacticsBot.Utility.Constants as Constants
-import TeamFightTacticsBot.Utility.GameConstants as GameConstants
-import TeamFightTacticsBot.Utility.ConfigFileLoader as ConfigFileLoader
+import Utility.Constants as Constants
+import Utility.GameConstants as GameConstants
+import Utility.ConfigFileLoader as ConfigFileLoader
 
 
 # puts one point into level
@@ -954,11 +955,16 @@ def make_image_readable(image):
 
 # This finds the play button and puts you in a game from it
 def get_into_game():
-    play_button_location = find_play_button()
 
-    if play_button_location is None:
-        print("Could not find league client")
-        return
+    #play_button_location = find_play_button()
+
+    # if play_button_location is None:
+    #     print("Could not find league client")
+    #     return
+
+    # Previous method didnt work, any advice is welcome
+    play_button_location = Point(400, 187)
+    click(play_button_location)
 
     click_through_to_game(play_button_location)
     Constants.in_game = True
@@ -995,33 +1001,36 @@ def check_queue(point):
     x = point.x
     y = point.y
 
-    image = image_grab.grab(bbox=(x + 469, y + 234, x + 744, y + 424))
+    #image = image_grab.grab(bbox=(x + 469, y + 234, x + 744, y + 424))
+    image = image_grab.grab(bbox=(800, 420, 1120, 600))
     image.save(get_analyzable_relative_path() + "queue_screenshot.png")
     queue_screenshot = Image.open(get_analyzable_relative_path() + "queue_screenshot.png")
-    queue_check = Image.open(get_button_relative_path() + "queue_check.PNG")
+    queue_check = Image.open(get_button_relative_path() + "queue_check_new.PNG")
 
     popped = False
     while not popped:
         popped = compare_images(queue_screenshot, queue_check)
-        image = image_grab.grab(bbox=(x + 468, y + 234, x + 743, y + 424))
+        #image = image_grab.grab(bbox=(x + 468, y + 234, x + 743, y + 424))
+        image = image_grab.grab(bbox=(800, 420, 1120, 600))
         image.save(get_analyzable_relative_path() + "queue_screenshot.png")
         queue_screenshot = Image.open(get_analyzable_relative_path() + "queue_screenshot.png")
         time.sleep(.5)
 
     # Accept queue
-    # click(Point(x + 600, y + 540))
+    click(Point(x + 600, y + 540))
 
     # Decline queue
-    click(Point(x + 600, y + 600))
+    #click(Point(x + 600, y + 600))
 
 
 # This searches you screen and finds the play button and returns its first pixel location
 def find_play_button():
-    get_screen()
-    screen = Image.open(get_analyzable_relative_path() + "screen.png")
+    #get_screen()
+    #screen = Image.open(get_analyzable_relative_path() + "screen.png")
+    screen = ImageGrab.grab()
     play_button_image = Image.open(get_button_relative_path() + "play_button.PNG")
 
-    return compare_images_and_get_location_strictly(screen, play_button_image, 25)
+    return compare_images_and_get_location_strictly(screen, play_button_image, 90)
 
 
 # This compares two images and then returns the location of the tested image

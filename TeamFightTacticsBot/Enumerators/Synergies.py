@@ -1,5 +1,5 @@
 from enum import Enum
-from TeamFightTacticsBot.Structures.Synergy import Synergy
+from Structures.Synergy import Synergy
 
 
 class Synergies(Enum):
@@ -11,6 +11,7 @@ class Synergies(Enum):
     EXILE = Synergy("Exile", "Yasuo", 1)
     GLACIAL = Synergy("Glacial", ("Braum", "Ashe", "Sejuani", "Lissandra",
                                   "Volibear", "Anivia"), (2, 4, 6))
+    HEXTECH = Synergy("Hextech", ("Camille", "Jayce", "Jinx", "Vi"), (2, 4))
     IMPERIAL = Synergy("Imperial", ("Darius", "Draven", "Swain", "Katarina"), (2, 4))
     NINJA = Synergy("Ninja", ("Kennen", "Zed", "Akali", "Shen"), (1, 4))
     NOBLE = Synergy("Noble", ("Vayne", "Kayle", "Garen", "Fiora", "Lucian",
@@ -27,18 +28,18 @@ class Synergies(Enum):
     # Classes
     ASSASSIN = Synergy("Assassin", ("Zed", "Khazix", "Evelynn", "Akali", "Pyke",
                                     "Rengar", "Katarina"), (3, 6))
-    BLADEMASTER = Synergy("Blademaster", ("Aatrox", "Fiora", "Draven", "Shen",
-                                          "Gangplank", "Yasuo"), (3, 6))
+    BLADEMASTER = Synergy("Blademaster", ("Aatrox", "Camille", "Fiora", "Draven", "Shen",
+                                          "Gangplank", "Yasuo"), (3, 6,  9))
     BRAWLER = Synergy("Brawler", ("Blitzcrank", "Volibear", "Reksai", "Warwick",
-                                  "Chogath"), (2, 4))
+                                  "Chogath", "Vi"), (2, 4, 6))
     ELEMENTALIST = Synergy("Elementalist", ("Kennen", "Brand", "Lissandra", "Anivia"), 3)
     GUARDIAN = Synergy("Guardian", ("Leona", "Braum"), 2)
     GUNSLINGER = Synergy("Gunslinger", ("Miss Fortune", "Tristana", "Lucian",
-                                        "Gangplank", "Graves"), (2, 4))
+                                        "Gangplank", "Graves", "Jinx"), (2, 4, 6))
     KNIGHT = Synergy("Knight", ("Garen", "Kayle", "Mordekaiser", "Sejuani",
                      "Darius", "Poppy"), (2, 4, 6))
     RANGER = Synergy("Ranger", ("Kindred", "Ashe", "Vayne", "Varus"), (2, 4))
     SHAPESHIFTER = Synergy("Shapeshifter", ("Gnar", "Shyvana", "Nidalee", "Swain",
-                                            "Elise"), 3)
+                                            "Elise", "Jayce"), (3, 6))
     SORCERER = Synergy("Sorcerer", ("Kassadin", "Lulu", "Morgana", "Karthus",
                                     "Ahri", "Veigar", "Aurelion Sol"), (3, 6))

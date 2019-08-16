@@ -1,6 +1,6 @@
 from enum import Enum
-from TeamFightTacticsBot.Structures.Item import Item
-from TeamFightTacticsBot.Enumerators.ItemEnhancements import ItemEnhancements
+from Structures.Item import Item
+from Enumerators.ItemEnhancements import ItemEnhancements
 
 
 class Items(Enum):

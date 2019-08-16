@@ -1,27 +1,28 @@
-from TeamFightTacticsBot.Utility.BotController import bot_initialize
-import TeamFightTacticsBot.Utility.Constants as Constants
-import TeamFightTacticsBot.Utility.GameConstants as GameConstants
-import TeamFightTacticsBot.Utility.Utils as Utils
-import TeamFightTacticsBot.Utility.TestingUtils as TestingUtils
-from TeamFightTacticsBot.Enumerators.Champions import Champions
+from Utility.BotController import bot_initialize
+import Utility.Constants as Constants
+import Utility.GameConstants as GameConstants
+import Utility.Utils as Utils
+import Utility.TestingUtils as TestingUtils
+from Enumerators.Champions import Champions
 import os
+import pyautogui as guy
 import copy
 
 
 def start():
-    if __name__ is not '__main__':
+    if __name__ != '__main__':
         return
 
     debugging = True
 
     if not debugging:
-        Constants.variables_initialize(os.path.dirname(__file__))
+        Constants.variables_initialize(os.getcwd())
         bot_initialize()
 
     if debugging:
-        Utils.initialize_resources(os.path.dirname(__file__))
+        Utils.initialize_resources(os.getcwd())
 
-        GameConstants.PLAYER_BOARD.board_slots[1][1] = Champions.MORDEKAISER.value
+        GameConstants.PLAYER_BOARD.board_slots[1][1] = Champions.SHEN.value
         shops = TestingUtils.get_images_from_directory()
         for shop in shops:
             Utils.buy_champions(shop)
@@ -40,6 +41,8 @@ def start():
         owned = Utils.get_champions_owned()
         print(GameConstants.PLAYER_BOARD)
          '''
+
+
 
 
 start()

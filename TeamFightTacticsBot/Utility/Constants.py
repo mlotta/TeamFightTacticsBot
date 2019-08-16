@@ -2,8 +2,8 @@ import ctypes
 import glob
 from PIL import Image
 import os
-from TeamFightTacticsBot.Structures.Point import Point
-from TeamFightTacticsBot.Utility.GameConstants import variables_initialize as game_constants
+from Structures.Point import Point
+from Utility.GameConstants import variables_initialize as game_constants
 
 # Program wide variables
 # Final
@@ -46,7 +46,7 @@ def variables_initialize(main_file):
 def load_champion_card_images():
     character_image_list = []
     index = 0
-    champion_image_folder = MAIN_FILE_LOCATION + '/Resources/Final/Champions/'
+    champion_image_folder = MAIN_FILE_LOCATION + '\\Resources\\Final\\Champions\\'
     directories = os.listdir(champion_image_folder)
     for directory in directories:
         CHARACTER_TIER_INDEXES.append(index)

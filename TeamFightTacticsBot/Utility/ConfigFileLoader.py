@@ -1,6 +1,6 @@
 import configparser as config_parser_master
-from TeamFightTacticsBot.Structures.LearnedMetaData import LearnedMetaData
-import TeamFightTacticsBot.Utility.Constants as Constants
+from Structures.LearnedMetaData import LearnedMetaData
+import Utility.Constants as Constants
 
 # Global Variables
 STAGE_LEVEL_ASSOCIATIONS = {}

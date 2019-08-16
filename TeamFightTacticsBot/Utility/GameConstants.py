@@ -1,5 +1,5 @@
-from TeamFightTacticsBot.Structures.Point import Point
-from TeamFightTacticsBot.Structures.PlayingBoard import PlayingBoard
+from Structures.Point import Point
+from Structures.PlayingBoard import PlayingBoard
 
 CHAMPION_MAX_LEVEL = 3
 

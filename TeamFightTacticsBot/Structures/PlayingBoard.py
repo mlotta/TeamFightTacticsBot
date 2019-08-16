@@ -1,4 +1,4 @@
-import TeamFightTacticsBot.Utility.GameConstants as GameConstants
+import Utility.GameConstants as GameConstants
 
 
 class PlayingBoard:

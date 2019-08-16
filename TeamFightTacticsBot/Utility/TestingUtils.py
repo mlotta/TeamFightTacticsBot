@@ -1,6 +1,6 @@
 from PIL import Image
 import glob
-import TeamFightTacticsBot.Utility.Constants as Constants
+import Utility.Constants as Constants
 
 
 def get_images_from_directory():

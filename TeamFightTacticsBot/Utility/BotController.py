@@ -1,5 +1,5 @@
-from TeamFightTacticsBot.Utility.Utils import get_into_game
-import TeamFightTacticsBot.Utility.Constants as Constants
+from Utility.Utils import get_into_game
+import Utility.Constants as Constants
 
 
 def bot_initialize():
